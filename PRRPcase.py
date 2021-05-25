@@ -16,21 +16,6 @@ def Init():
     vehTypesEquipped = [x[0] for x in vehTypesAttributes if x[1]]
     vehTypesSpeial = [x[0] for x in vehTypesAttributes if x[2]]
 
-def OptimalSpeedMin(minSpeed, desSpeed):
-    if minSpeed < desSpeed:
-        optimalSpeed = desSpeed
-    else:
-        optimalSpeed = -1
-    return optimalSpeed
-
-def OptimalSpeedMax(maxSpeed, desSpeed):
-
-    if maxSpeed > desSpeed: 
-        optimalSpeed = desSpeed
-    else:
-        optimalSpeed = maxSpeed 
-    return optimalSpeed
-
 def GetVissimDataVehicles():
 
     global vehsAttributes
@@ -38,7 +23,7 @@ def GetVissimDataVehicles():
     vehsAttributesNames = ['No', 'VehType\\No', 'Lane\\Link\\No', 'DesSpeed', 'OrgDesSpeed', 'DistanceToSigHead', 'SpeedMaxForGreenStart', 'SpeedMinForGreenEnd', 'Speed', 'Pos', 'Lane\Link']
     vehsAttributes = toList(Vissim.Net.Vehicles.GetMultipleAttributes(vehsAttributesNames))
 
-    # create dictionary for the attribute names read from PTV Vissim:
+
     vehsAttNames = {}
     cnt = 0
     for att in vehsAttributesNames:
